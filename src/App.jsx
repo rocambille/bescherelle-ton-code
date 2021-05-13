@@ -1,26 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import logo from './logo.png';
 import './App.css';
+
+import { ContextProviders } from './contexts';
+import Dictation from './components/Dictation';
+import DictationList from './components/DictationList';
 
 function App() {
   return (
     <main className="rsw-container">
-      <div
-        className="rsw-item"
-        style={{
-          paddingBottom: '2rem',
-        }}>
-        <img src={logo} width="20%" alt="WCS logo" />
-      </div>
-      <div className="rsw-item">
-        <p>Welcome to your fresh, lightweight, React App ! &#127752;</p>
-      </div>
-      <div className="rsw-item">
-        <p>
-          Start in the <code>App.jsx</code> component !
-        </p>
-      </div>
+      <ContextProviders>
+        <BrowserRouter>
+          <Route exact path="/" component={DictationList} />
+          <Route exact path="/dictations/:id" component={Dictation} />
+        </BrowserRouter>
+      </ContextProviders>
     </main>
   );
 }
