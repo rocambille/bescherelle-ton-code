@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { DictationContext } from '../contexts/DictationContext';
+import CodeEditor from './CodeEditor';
 
 function Dictation() {
   const dictationList = useContext(DictationContext);
@@ -19,10 +20,10 @@ function Dictation() {
     setCurrentStepIndex(0);
   }, [dictation]);
 
-  const code = useRef();
+  const [code, setCode] = useState('');
 
   const checkCode = () => {
-    const trimmedCode = code.current.value.replace(/[ \t\n]/g, '');
+    const trimmedCode = code.replace(/[ \t\n]/g, '');
     const trimmedSolution = dictation.steps[currentStepIndex].code.replace(/[ \t\n]/g, '');
 
     if (trimmedCode === trimmedSolution) {
@@ -43,7 +44,7 @@ function Dictation() {
           ) : (
             <p>Point(-virgule) final. 20/20 :)</p>
           )}
-          <textarea ref={code} />
+          <CodeEditor code={code} setCode={setCode} />
           <ul>
             {dictation.steps
               .map((step, index) => {

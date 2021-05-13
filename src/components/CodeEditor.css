@@ -1,0 +1,50 @@
+.code-edit-container {
+  position: relative;
+  min-height: 500px;
+  font-family: 'PT Mono', monospace;
+}
+
+.code-input,
+.code-output {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+}
+
+.code-input {
+  opacity: 1;
+  margin: 0;
+  resize: none;
+  color: hsl(0, 0%, 40%);
+}
+
+.code-output {
+  pointer-events: none;
+  z-index: 3;
+  margin: 0;
+  overflow-y: auto;
+}
+
+code {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: block;
+  font-family: inherit;
+  color: hsl(0, 0%, 40%);
+}
+
+/* overrides */
+.code-edit-container :not(pre) > code[class*='language-'],
+.code-edit-container pre[class*='language-'] {
+  background: transparent;
+  margin: 0;
+}
