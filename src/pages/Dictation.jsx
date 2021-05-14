@@ -40,7 +40,7 @@ function Dictation() {
 
   return (
     <>
-      <Link to="/dictations" className="float-right">
+      <Link to="/dictations" className="absolute right-4">
         Retour
       </Link>
       {dictation && (
@@ -53,24 +53,26 @@ function Dictation() {
           ) : (
             <p>Point(-virgule) final. 20/20 :)</p>
           )}
-          <CodeEditor code={code} setCode={setCode} />
-          <ol className="list-decimal list-inside flex flex-col-reverse">
-            {dictation.steps.map((step, index) => {
-              if (index > currentStepIndex) {
-                return;
-              }
+          <div className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4">
+            <CodeEditor code={code} setCode={setCode} />
+            <ol className="list-decimal list-inside flex flex-col-reverse justify-end">
+              {dictation.steps.map((step, index) => {
+                if (index > currentStepIndex) {
+                  return;
+                }
 
-              if (index === currentStepIndex) {
-                return (
-                  <li key={step.id}>
-                    <strong>{step.instruction}</strong>
-                  </li>
-                );
-              }
+                if (index === currentStepIndex) {
+                  return (
+                    <li key={step.id}>
+                      <strong>{step.instruction}</strong>
+                    </li>
+                  );
+                }
 
-              return <li key={step.id}>{step.instruction}</li>;
-            })}
-          </ol>
+                return <li key={step.id}>{step.instruction}</li>;
+              })}
+            </ol>
+          </div>
         </>
       )}
     </>

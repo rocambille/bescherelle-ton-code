@@ -12,7 +12,7 @@ function DictationList() {
 
   return (
     <>
-      <Link to="/" className="float-right">
+      <Link to="/" className="absolute right-4">
         Retour
       </Link>
       <Title>La dictée de Robby</Title>

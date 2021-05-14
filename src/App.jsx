@@ -8,7 +8,7 @@ import pages from './pages';
 
 function App() {
   return (
-    <main className="container mx-auto space-y-4">
+    <main className="container mx-auto p-4 space-y-4 min-h-screen flex flex-col relative">
       <ContextProviders>
         <BrowserRouter>
           {pages.map(({ path, Component }, index) => (
