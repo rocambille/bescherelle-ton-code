@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 
 import { DictationContext } from '../contexts/DictationContext';
 import CodeEditor from '../components/CodeEditor';
+import useTitle from '../hooks/useTitle';
 
 function Dictation() {
   const dictationList = useContext(DictationContext);
@@ -30,6 +31,8 @@ function Dictation() {
       setCurrentStepIndex((previous) => previous + 1);
     }
   };
+
+  useTitle(dictation?.title);
 
   return (
     <>
