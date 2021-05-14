@@ -51,17 +51,23 @@ function Dictation() {
             <p>Point(-virgule) final. 20/20 :)</p>
           )}
           <CodeEditor code={code} setCode={setCode} />
-          <ul>
-            {dictation.steps
-              .map((step, index) => {
-                if (index > currentStepIndex) {
-                  return;
-                }
+          <ol className="list-decimal list-inside flex flex-col-reverse">
+            {dictation.steps.map((step, index) => {
+              if (index > currentStepIndex) {
+                return;
+              }
 
-                return <li key={step.id}>{step.instruction}</li>;
-              })
-              .reverse()}
-          </ul>
+              if (index === currentStepIndex) {
+                return (
+                  <li key={step.id}>
+                    <strong>{step.instruction}</strong>
+                  </li>
+                );
+              }
+
+              return <li key={step.id}>{step.instruction}</li>;
+            })}
+          </ol>
         </>
       )}
     </>
