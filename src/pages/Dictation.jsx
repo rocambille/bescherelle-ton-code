@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import parserBabel from 'prettier/parser-babel';
+import prettier from 'prettier/standalone';
 
 import { DictationContext } from '../contexts/DictationContext';
 import CodeEditor from '../components/CodeEditor';
@@ -24,10 +26,11 @@ function Dictation() {
   const [code, setCode] = useState('');
 
   const checkCode = () => {
-    const trimmedCode = code.replace(/[ \t\n]/g, '');
-    const trimmedSolution = dictation.steps[currentStepIndex].code.replace(/[ \t\n]/g, '');
+    const format = (source) => prettier.format(source, { parser: 'babel', plugins: [parserBabel] });
 
-    if (trimmedCode === trimmedSolution) {
+    const solution = dictation.steps[currentStepIndex].code;
+
+    if (format(code) === format(solution)) {
       setCurrentStepIndex((previous) => previous + 1);
     }
   };
