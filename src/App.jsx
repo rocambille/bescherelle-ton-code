@@ -4,16 +4,16 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 
 import { ContextProviders } from './contexts';
-import Dictation from './components/Dictation';
-import DictationList from './components/DictationList';
+import pages from './pages';
 
 function App() {
   return (
     <main className="rsw-container">
       <ContextProviders>
         <BrowserRouter>
-          <Route exact path="/" component={DictationList} />
-          <Route exact path="/dictations/:id" component={Dictation} />
+          {pages.map(({ path, Component }, index) => (
+            <Route key={index} exact path={path} component={Component} />
+          ))}
         </BrowserRouter>
       </ContextProviders>
     </main>

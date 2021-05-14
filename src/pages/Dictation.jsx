@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 import { DictationContext } from '../contexts/DictationContext';
-import CodeEditor from './CodeEditor';
+import CodeEditor from '../components/CodeEditor';
 
 function Dictation() {
   const dictationList = useContext(DictationContext);
