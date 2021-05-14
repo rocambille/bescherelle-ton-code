@@ -7,14 +7,14 @@ import 'prismjs/themes/prism.css';
 
 import './CodeEditor.css';
 
-function CodeEditor({ code, setCode }) {
+function CodeEditor({ className, code, setCode }) {
   useEffect(() => {
     Prism.highlightAll();
   }, [code]);
 
   return (
-    <div className="code-edit-container border rounded">
-      <textarea className="code-input" value={code} onChange={(event) => setCode(event.target.value)} />
+    <div className={`${className} code-edit-container border rounded`}>
+      <textarea className="code-input px-2 py-4" value={code} onChange={(event) => setCode(event.target.value)} />
       <pre className="code-output">
         <code className="language-javascript">{code}</code>
       </pre>
@@ -23,8 +23,13 @@ function CodeEditor({ code, setCode }) {
 }
 
 CodeEditor.propTypes = {
+  className: PropTypes.string,
   code: PropTypes.string.isRequired,
   setCode: PropTypes.func.isRequired,
+};
+
+CodeEditor.defaultProps = {
+  className: '',
 };
 
 export default CodeEditor;

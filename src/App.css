@@ -10,4 +10,10 @@
   a:focus {
     @apply no-underline;
   }
+  .button-primary {
+    @apply bg-green-500 text-white font-semibold hover:bg-green-700 focus:ring-green-400;
+  }
+  .button-secondary {
+    @apply bg-green-100 hover:bg-green-300 focus:ring-green-400;
+  }
 }
