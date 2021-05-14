@@ -8,7 +8,7 @@ import pages from './pages';
 
 function App() {
   return (
-    <main className="rsw-container">
+    <main className="container mx-auto space-y-4">
       <ContextProviders>
         <BrowserRouter>
           {pages.map(({ path, Component }, index) => (

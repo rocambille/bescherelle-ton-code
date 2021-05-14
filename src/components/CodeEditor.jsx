@@ -13,7 +13,7 @@ function CodeEditor({ code, setCode }) {
   }, [code]);
 
   return (
-    <div className="code-edit-container">
+    <div className="code-edit-container border rounded">
       <textarea className="code-input" value={code} onChange={(event) => setCode(event.target.value)} />
       <pre className="code-output">
         <code className="language-javascript">{code}</code>

@@ -5,6 +5,7 @@ import prettier from 'prettier/standalone';
 
 import { DictationContext } from '../contexts/DictationContext';
 import CodeEditor from '../components/CodeEditor';
+import Title from '../components/Title';
 import useTitle from '../hooks/useTitle';
 
 function Dictation() {
@@ -39,10 +40,12 @@ function Dictation() {
 
   return (
     <>
-      <Link to="/">Retour</Link>
+      <Link to="/dictations" className="float-right">
+        Retour
+      </Link>
       {dictation && (
         <>
-          <h1>{dictation.title}</h1>
+          <Title>{dictation.title}</Title>
           {currentStepIndex < dictation.steps.length ? (
             <button type="button" onClick={checkCode}>
               Valider

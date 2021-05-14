@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { TITLE } from '../constants';
+import Title from '../components/Title';
 import useTitle from '../hooks/useTitle';
 
 function Home() {
@@ -9,7 +10,7 @@ function Home() {
 
   return (
     <>
-      <h1>{TITLE}</h1>
+      <Title>{TITLE}</Title>
       <ul>
         <li>
           <Link to="/dictations">La dictée de Robby</Link>
