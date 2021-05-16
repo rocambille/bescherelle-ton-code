@@ -13,7 +13,7 @@ function Home() {
       <Title>{TITLE}</Title>
       <ul>
         <li>
-          <Link to="/dictations">La dictée de Robby</Link>
+          <Link to="/dictations">Les dictées de Robby</Link>
         </li>
       </ul>
     </>

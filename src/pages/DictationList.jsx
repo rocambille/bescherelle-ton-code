@@ -8,14 +8,14 @@ import useTitle from '../hooks/useTitle';
 function DictationList() {
   const dictationList = useContext(DictationContext);
 
-  useTitle('La dictée de Robby');
+  useTitle('Les dictées de Robby');
 
   return (
     <>
       <Link to="/" className="absolute right-4">
         Retour
       </Link>
-      <Title>La dictée de Robby</Title>
+      <Title>Les dictées de Robby</Title>
       <ul>
         {dictationList.map((dictation) => (
           <li key={dictation.id}>
