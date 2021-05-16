@@ -1,6 +1,8 @@
+import { lazy } from 'react';
+
 import Home from './Home';
-import Dictation from './Dictation';
-import DictationList from './DictationList';
+const Dictation = lazy(() => import('./Dictation'));
+const DictationList = lazy(() => import('./DictationList'));
 
 const pages = [
   {
