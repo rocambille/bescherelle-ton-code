@@ -13,7 +13,7 @@
     "serve": "vite preview",
     "lint": "lint-staged",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "touch dist/.nojekyll && gh-pages -d dist -t"
   },
   "keywords": [
     "react"
