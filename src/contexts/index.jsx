@@ -1,14 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { DictationListProvider, useDictationList } from './DictationListContext';
 
-import { DictationContext, DictationProvider } from './DictationContext';
-
-function ContextProviders({ children }) {
-  return <DictationProvider>{children}</DictationProvider>;
-}
-
-ContextProviders.propTypes = {
-  children: PropTypes.element.isRequired,
-};
-
-export { DictationContext, ContextProviders };
+export { DictationListProvider, useDictationList };

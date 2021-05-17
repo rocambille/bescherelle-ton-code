@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import parserBabel from 'prettier/parser-babel';
 import prettier from 'prettier/standalone';
 
 const format = (source) => prettier.format(source, { parser: 'babel', plugins: [parserBabel] });
 
-import { DictationContext } from '../contexts/DictationContext';
+import { useDictationList } from '../contexts';
 import CodeEditor from '../components/CodeEditor';
 import Title from '../components/Title';
 import useTitle from '../hooks/useTitle';
@@ -21,7 +21,7 @@ const backLink = (
 function Dictation() {
   const id = parseInt(useParams().id, 10);
 
-  const dictationList = useContext(DictationContext);
+  const dictationList = useDictationList();
   const dictation = dictationList.find((match) => match.id === id);
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);

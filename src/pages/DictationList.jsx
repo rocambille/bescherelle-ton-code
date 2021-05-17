@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { DictationContext } from '../contexts/DictationContext';
+import { useDictationList } from '../contexts';
 import Title from '../components/Title';
 import useTitle from '../hooks/useTitle';
 
 function DictationList() {
-  const dictationList = useContext(DictationContext);
+  const dictationList = useDictationList();
 
   useTitle('Les dictées de Robby');
 
