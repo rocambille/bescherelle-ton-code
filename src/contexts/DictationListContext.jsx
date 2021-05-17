@@ -9,7 +9,7 @@ function DictationListProvider({ children }) {
   const [dictationList, setDictationList] = useState(initialDictationList);
 
   useEffect(() => {
-    fetch('https://my-json-server.typicode.com/rocambille/my-dictations/dications')
+    fetch('https://my-json-server.typicode.com/rocambille/my-dictations/dictations')
       .then((response) => response.json())
       .then((dictations) => setDictationList(dictations));
   }, []);
