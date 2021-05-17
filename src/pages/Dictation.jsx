@@ -43,7 +43,7 @@ function Dictation() {
     <>
       {backLink}
       <Title>{dictation.title}</Title>
-      <div className="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4" style={{ gridTemplateRows: '1fr auto' }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ gridTemplateRows: '1fr auto' }}>
         <CodeEditor className={!isValid ? 'ring-2 ring-opacity-75 ring-red-400' : ''} code={code} setCode={setCode} />
 
         <CodeEditorButtons

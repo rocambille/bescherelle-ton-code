@@ -7,7 +7,7 @@ import { Routes } from './pages';
 
 function App() {
   return (
-    <main className="container mx-auto p-4 space-y-4 min-h-screen flex flex-col relative">
+    <main className="container mx-auto p-4 space-y-4 min-h-screen grid relative" style={{ gridTemplateRows: 'auto 1fr' }}>
       <HashRouter>
         <Routes />
       </HashRouter>
