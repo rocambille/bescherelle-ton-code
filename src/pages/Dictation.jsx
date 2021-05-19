@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Redirect, useParams } from 'react-router-dom';
 import parserBabel from 'prettier/parser-babel';
 import prettier from 'prettier/standalone';
 
@@ -7,16 +7,10 @@ const format = (source) => prettier.format(source, { parser: 'babel', plugins: [
 
 import { useDictationList } from '../contexts';
 import CodeEditor from '../components/CodeEditor';
+import CodeEditorButtons from '../components/CodeEditorButtons';
+import StepList from '../components/StepList';
 import Title from '../components/Title';
 import useTitle from '../hooks/useTitle';
-import StepList from '../components/StepList';
-import CodeEditorButtons from '../components/CodeEditorButtons';
-
-const backLink = (
-  <Link to="/dictations" className="absolute right-4">
-    Retour
-  </Link>
-);
 
 function Dictation() {
   const id = parseInt(useParams().id, 10);
@@ -36,12 +30,14 @@ function Dictation() {
   useTitle(dictation?.title);
 
   if (dictation == null) {
-    return backLink;
+    return <Redirect to="/dictations" />;
   }
 
   return (
     <>
-      {backLink}
+      <Link to="/dictations" className="absolute right-4">
+        Retour
+      </Link>
       <Title>{dictation.title}</Title>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ gridTemplateRows: '1fr auto' }}>
         <CodeEditor className={!isValid ? 'ring-2 ring-opacity-75 ring-red-400' : ''} code={code} setCode={setCode} />

@@ -14,8 +14,10 @@ function Routes() {
       {route('/', Home)}
       <Suspense fallback={<p>Chargement...</p>}>
         <DictationListProvider>
-          {route('/dictations/:id', Dictation)}
-          {route('/dictations', DictationList)}
+          <>
+            {route('/dictations', DictationList)}
+            {route('/dictations/:id', Dictation)}
+          </>
         </DictationListProvider>
       </Suspense>
     </Switch>
