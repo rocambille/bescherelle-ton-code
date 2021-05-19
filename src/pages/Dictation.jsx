@@ -12,6 +12,12 @@ import StepList from '../components/StepList';
 import Title from '../components/Title';
 import useTitle from '../hooks/useTitle';
 
+const backLink = (
+  <Link to="/dictations" className="absolute right-4">
+    Retour
+  </Link>
+);
+
 function Dictation() {
   const id = parseInt(useParams().id, 10);
 
@@ -29,7 +35,13 @@ function Dictation() {
 
   useTitle(dictation?.title);
 
+  if (dictation.length === 0) {
+    // list is not ready: wait for it, or leave the page
+    return backLink;
+  }
+
   if (dictation == null) {
+    // id is not valid
     return <Redirect to="/dictations" />;
   }
 
@@ -37,9 +49,7 @@ function Dictation() {
 
   return (
     <>
-      <Link to="/dictations" className="absolute right-4">
-        Retour
-      </Link>
+      {backLink}
       <Title>{dictation.title}</Title>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ gridTemplateRows: '1fr auto' }}>
         <CodeEditor id={editorId} className={!isValid ? 'ring-2 ring-opacity-75 ring-red-400' : ''} code={code} setCode={setCode} />
