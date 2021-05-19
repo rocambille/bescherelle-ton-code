@@ -33,6 +33,8 @@ function Dictation() {
     return <Redirect to="/dictations" />;
   }
 
+  const editorId = 'dictation-editor';
+
   return (
     <>
       <Link to="/dictations" className="absolute right-4">
@@ -40,7 +42,7 @@ function Dictation() {
       </Link>
       <Title>{dictation.title}</Title>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ gridTemplateRows: '1fr auto' }}>
-        <CodeEditor className={!isValid ? 'ring-2 ring-opacity-75 ring-red-400' : ''} code={code} setCode={setCode} />
+        <CodeEditor id={editorId} className={!isValid ? 'ring-2 ring-opacity-75 ring-red-400' : ''} code={code} setCode={setCode} />
 
         <CodeEditorButtons
           className="col-span-1 md:row-start-2"
@@ -62,7 +64,7 @@ function Dictation() {
           }}
         />
 
-        <StepList currentStepIndex={currentStepIndex} steps={dictation.steps} />
+        <StepList currentStepIndex={currentStepIndex} editorId={editorId} steps={dictation.steps} />
       </div>
     </>
   );

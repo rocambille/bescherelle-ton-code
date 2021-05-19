@@ -11,7 +11,7 @@
     @apply no-underline;
   }
   .button-primary {
-    @apply bg-green-500 text-white font-semibold hover:bg-green-700 focus:ring-green-400;
+    @apply bg-green-700 text-white font-semibold hover:bg-green-800 focus:ring-green-600;
   }
   .button-secondary {
     @apply bg-green-100 hover:bg-green-300 focus:ring-green-400;

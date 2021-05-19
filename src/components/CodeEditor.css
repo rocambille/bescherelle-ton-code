@@ -3,8 +3,7 @@
   font-family: 'PT Mono', monospace;
 }
 
-.code-input,
-.code-output {
+.code-input {
   position: absolute;
   top: 0;
   left: 0;
@@ -15,32 +14,29 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   font-family: inherit;
-}
-
-.code-input {
   opacity: 1;
   margin: 0;
   resize: none;
   color: transparent;
-  caret-color: black;
+  caret-color: white;
 }
 
 .code-output {
   pointer-events: none;
-  z-index: 3;
   margin: 0;
+  height: 100%;
   overflow-y: auto;
 }
 
 code {
   display: block;
+  height: 100%;
   font-family: inherit;
 }
 
 /* overrides */
 .code-edit-container code[class*='language-'],
 .code-edit-container pre[class*='language-'] {
-  background: transparent;
   margin: 0;
   padding: 0;
   font-family: 'PT Mono', monospace;
