@@ -1,12 +1,11 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
+import { route } from '../helpers';
 import Home from './Home';
 const Dictation = lazy(() => import('./Dictation'));
 const DictationList = lazy(() => import('./DictationList'));
 import { DictationListProvider } from '../contexts';
-
-const route = (path, Component) => <Route exact path={path} component={Component} />;
 
 function Routes() {
   return (

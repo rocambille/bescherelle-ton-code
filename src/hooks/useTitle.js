@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
-import { TITLE } from '../constants';
+import { appName } from '../helpers';
 
 function useTitle(pageTitle) {
   useEffect(() => {
-    document.title = TITLE;
+    document.title = appName();
 
     if (pageTitle) {
       document.title += ` – ${pageTitle}`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { TITLE } from '../constants';
+import { appName } from '../helpers';
 import Title from '../components/Title';
 import useTitle from '../hooks/useTitle';
 
@@ -10,8 +10,11 @@ function Home() {
 
   return (
     <>
-      <Title>{TITLE}</Title>
-      <ul>
+      <Title>{appName()}</Title>
+      <ul className="flex flex-col">
+        <li>
+          <Link to="/spelling-bee">Concours d&apos;orthographe</Link>
+        </li>
         <li>
           <Link to="/dictations">Les dictées de Robby</Link>
         </li>

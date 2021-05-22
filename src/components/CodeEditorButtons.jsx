@@ -5,7 +5,9 @@ import Button from './Button';
 
 function CodeEditorButtons({ className, isOver, checkCode, showSolution }) {
   return isOver ? (
-    <p className={`${className} text-center`}>Point-virgule final. 20/20 :)</p>
+    <p role="status" className={`${className} text-center`}>
+      Point-virgule final. 20/20 :)
+    </p>
   ) : (
     <div className={`${className} flex`}>
       <Button className="flex-grow button-secondary" onClick={showSolution}>
