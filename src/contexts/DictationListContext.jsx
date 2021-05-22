@@ -1,18 +1,14 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 import PropTypes from 'prop-types';
+
+import useFetch from '../hooks/useFetch';
 
 const initialDictationList = [];
 
 const DictationListContext = createContext(initialDictationList);
 
 function DictationListProvider({ children }) {
-  const [dictationList, setDictationList] = useState(initialDictationList);
-
-  useEffect(() => {
-    fetch('https://my-json-server.typicode.com/rocambille/my-dictations/dictations')
-      .then((response) => response.json())
-      .then((dictations) => setDictationList(dictations));
-  }, []);
+  const [dictationList] = useFetch('https://my-json-server.typicode.com/rocambille/my-dictations/dictations', initialDictationList);
 
   return <DictationListContext.Provider value={dictationList}>{children}</DictationListContext.Provider>;
 }
