@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect, useParams } from 'react-router-dom';
 import parserBabel from 'prettier/parser-babel';
 import prettier from 'prettier/standalone';
@@ -22,20 +22,16 @@ function Dictation() {
   const id = parseInt(useParams().id, 10);
 
   const dictationList = useDictationList();
-  const dictation = dictationList.find((match) => match.id === id);
+  const dictation = dictationList.find((match) => parseInt(match.id, 10) === id);
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-
-  useEffect(() => {
-    setCurrentStepIndex(0);
-  }, [dictation]);
 
   const [code, setCode] = useState('');
   const [isValid, setValid] = useState(true);
 
   useTitle(dictation?.title);
 
-  if (dictation.length === 0) {
+  if (dictationList.length === 0) {
     // list is not ready: wait for it, or leave the page
     return backLink;
   }
